@@ -1,0 +1,22 @@
+Usage of the geoBoundaries Database requires citation.:
+This can be satisfied by either:
+   1. (Preferred) - Citing our academic work: Runfola, D. et al. (2020)
+      geoBoundaries: A global database of political administrative boundaries.
+      PLoS ONE 15(4): e0231866. https://doi.org/10.1371/journal.pone.0231866
+   2. Providing a link to geoboundaries.org - i.e., 'Administrative boundaries courtesy 
+      of geoBoundaries.org'
+Additionally, we recommend citation of the source(s) noted in this metadata file.
+
+
+ISO-3166-1 (Alpha-3): GBR
+Boundary Representative of Year: 2019
+Boundary Type: ADM2
+Boundary Source(s): Office for National Statistics Open Geography Portal
+Canonical Boundary Type Name: Counties and Unitary Authorities
+License: Open Government Licence v3.0
+License Notes: http//www.nationalarchives.gov.uk/doc/open-government-licence/version/3/
+License Source: https//geoportal.statistics.gov.uk/datasets/b216b4c8a4e74f6fb692a1785255d777_0?geometry=-19.125%2C53.451%2C14.252%2C57.788
+Data Source: https//geoportal.statistics.gov.uk/datasets/b216b4c8a4e74f6fb692a1785255d777_0?geometry=-19.125%2C53.451%2C14.252%2C57.788
+Source Data Updated On: Thu Jan 19 07:31:04 2023
+File Built On: Dec 12, 2023
+Number of Administrative Units: 216
