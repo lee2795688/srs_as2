@@ -253,3 +253,39 @@ ggsave("Fig/Warming_Rate.png", width = 5, height = 6, dpi = 300)
 print(p1)
 print(p2)
 
+# four country
+M1_reml <- gls(temp ~ year_c, data = df_annual_4)
+M2_reml <- gls(temp ~ year_c + I(year_c^2), data = df_annual_4)
+M3_no_ar_reml <- gls(temp ~ year_c + I(year_c^2) * region, data = df_annual_4)
+
+ss_tot_4 <- sum((df_annual_4$temp - mean(df_annual_4$temp))^2)
+
+models <- list(M1 = M1_reml, M2 = M2_reml, M3 = M3_no_ar_reml, M3_AR1 = M_final_4)
+
+for (name in names(models)) {
+  m <- models[[name]]
+  ss_res <- sum(residuals(m)^2)
+  r2 <- 1 - ss_res / ss_tot_4
+  rmse <- sqrt(mean(residuals(m)^2))
+  cat(name, ": R² =", round(r2, 3), ", RMSE =", round(rmse, 3), "°C\n")
+}
+
+# eight sub-region
+M1_8_reml <- gls(temp ~ year_c, data = df_annual_8)
+M2_8_reml <- gls(temp ~ year_c + I(year_c^2), data = df_annual_8)
+M3_8_no_ar_reml <- gls(temp ~ year_c + I(year_c^2) * region, data = df_annual_8)
+M_final_8 <- gls(temp ~ year_c + I(year_c^2) * region, data = df_annual_8,
+                 correlation = corAR1(form = ~year | region))
+
+ss_tot_8 <- sum((df_annual_8$temp - mean(df_annual_8$temp))^2)
+
+models_8 <- list(M1 = M1_8_reml, M2 = M2_8_reml, M3 = M3_8_no_ar_reml, M3_AR1 = M_final_8)
+
+for (name in names(models_8)) {
+  m <- models_8[[name]]
+  ss_res <- sum(residuals(m)^2)
+  r2 <- 1 - ss_res / ss_tot_8
+  rmse <- sqrt(mean(residuals(m)^2))
+  cat(name, "(8-region): R² =", round(r2, 3), ", RMSE =", round(rmse, 3), "°C\n")
+}
+
